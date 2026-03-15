@@ -1,0 +1,73 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+/* filter: drop-shadow(0 0 2em #61dafbaa); */
+body{
+  background: linear-gradient(0deg, rgba(147, 124, 35, 0.279), rgba(147, 124, 35, 0.279)), url("src/assets/90sanimewallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flash-card {
+  width: 620px;
+  height: 250px;
+  background-color: rgba(42, 10, 23, 0.8);
+
+  padding: 2em;
+  margin: auto;
+  box-shadow: 0px 0px 12px pink;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: perspective(1000px) rotateX(var(--rotate-X, 0));
+  transition: 0.3s;
+  cursor: pointer;
+}
+.flash-card:hover{
+  box-shadow: 0px 0px 18px white;
+}
+.flipped {
+  --rotate-X: 180deg;
+}
+
+.front, .back{
+  position: absolute;
+  padding: 5px;
+}
+.front {
+  backface-visibility: hidden;
+}
+.back {
+  transform: rotateX(180deg);
+}
+
+#irregular{
+  background-color: rgba(12, 10, 42, 0.8);
+}
+
+
+#guess{
+  padding: 12px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: transparent;
+  background: #000000ba;
+}
+#guess.incorrect{
+  border-color: red;
+}
+#guess.correct{
+  border-color: rgb(47, 255, 57);
+}
+
+button:disabled{
+  cursor: not-allowed;
+}

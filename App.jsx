@@ -26,7 +26,7 @@ const flashcards = [
   {front: "１０,０００", back: ["一万", "いちまん"]}
 ];
 
-const Guess = ({ currentCard, guess, setGuess, result, setResult }) => {
+const Guess = ({ currentCard, guess, setGuess, result, setResult, flipCard }) => {
 
     const handleChange = (e) => {
         setGuess(e.target.value)
@@ -49,7 +49,7 @@ const Guess = ({ currentCard, guess, setGuess, result, setResult }) => {
     return (
         <>
             <input className={result === null ? "" : result ? "correct" : "incorrect"} id="guess" name="guess" type="text" placeholder="Your Guess Here" value={guess} onChange={handleChange}></input>
-            <button id="submit" type="submit" onClick={submitGuess}>Submit Guess</button>
+            <button id="submit" type="submit" onClick={flipCard ? null : submitGuess}>Submit Guess</button>
             {/* {guess} */}
         </>
     );
@@ -108,7 +108,7 @@ function App() {
       </div>
 
       <button onClick={prevCard} disabled={isFirstCard}>← 前 (ぜん)</button>
-      <Guess currentCard={currentCard} guess={guess} setGuess={setGuess} result={result} setResult={setResult} />
+      <Guess currentCard={currentCard} guess={guess} setGuess={setGuess} result={result} setResult={setResult} flipCard = {flipCard} />
       <button onClick={nextCard} disabled={isLastCard}>次 (つぎ) →</button>
       
     </>
